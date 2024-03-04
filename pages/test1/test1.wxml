@@ -1,0 +1,15 @@
+<!-- 选择 S -->
+<view wx:for="{{riderCommentList}}" wx:for-item="item" wx:key="index" bindtap="checkboxChange" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" class="btn {{item.selected ? 'btn-selected' : ''}}" >
+      {{item.title}}
+  </view>
+  <!-- 选择 E -->
+
+<view class="select">
+  <text>结束时间</text>
+</view>
+<view class="select" style="height: 125rpx;">
+  <text>打卡频率</text>
+  <view class="week {{item.selected ? 'week-selected' : ''}}" bindtap="weekboxChange" wx:for="{{week}}" wx:key="index" data-index="{{index}}" checked="{{item.selected}}">
+    {{item.title}}
+  </view>
+</view>

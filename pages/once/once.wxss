@@ -1,0 +1,42 @@
+/* 创建单次打卡*/
+page{
+  background: #eee;
+}
+
+.title,.select{
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx;
+    border-bottom: 1rpx solid #eee;
+    color: black;
+  }
+
+.title input{
+    text-align:right;
+  }
+
+.new{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50rpx;
+}
+
+.time_set{
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+}
+
+picker{
+  margin-left: 50rpx;
+}
+
+button{
+  margin-top: 50rpx;
+}

@@ -1,0 +1,115 @@
+<!--创建单次打卡-->
+<view class="base">
+  <text >基本信息</text>
+</view>
+
+<form bindsubmit="once_form">
+  <view class="list">
+  
+    <view class="title">
+      <text style="color: black;">标题</text>
+      <input name="title" type="text" maxlength="4" placeholder-style='font-size:35rpx;' placeholder="最大输入长度为4"/>
+    </view>
+<!-- 整体时间长度和频率 -->
+    <view class="holism">
+      <view class="base">
+        <text>活动时间</text>
+      </view>
+
+      <view class="time">
+        <view class="title">
+          <text>开始时间</text>
+          <view class="time_set">
+            <picker name="startDate" mode="date"  end="{{checkMaxDate}}" value="{{startDateIndex}}" bindchange="bindCheckinDateChange">
+              <view class="picker-item">{{startDateIndex}}</view>
+            </picker>
+            <picker name="startTime" mode="time"  end="{{checkMaxTime}}" value="{{startTimeIndex}}" bindchange="bindCheckinTimeChange">
+              <view class="picker-item">{{startTimeIndex}}</view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="title">
+          <text>结束时间</text>
+          <view class="time_set">
+            <picker name="endDate" mode="date" start="{{checkMinDate}}" value="{{endDateIndex}}" bindchange="bindCheckoutDateChange">
+              <view  class="picker-item">{{endDateIndex}}</view>
+            </picker>
+            <picker name="endTime" mode="time" start="{{checkMinTime}}" value="{{endTimeIndex}}" bindchange="bindCheckoutTimeChange">
+              <view class="picker-item">{{endTimeIndex}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="select" style="height: 125rpx;">
+        <text>打卡频率</text>
+        <view class="week {{item.selected ? 'week-selected' : ''}}" bindtap="weekboxChange" wx:for="{{week}}" wx:key="index" data-index="{{index}}" checked="{{item.selected}}">
+          {{item.title}}
+        </view>
+      </view>
+    </view>
+
+      <view class="base">
+        <text>单个打卡日</text>
+      </view>
+
+      <view class="time">
+        <view class="select">    
+          <text style="font-size: 32rpx;color: #6f6f6f;">时间设置</text>
+        </view>
+        <view class="time">
+          <view class="title">
+            <text>开始时间</text>
+            <view class="time_set">
+              <picker name="start" mode="time"  end="{{checkMaxDayTime}}" value="{{dayStartTime}}" bindchange="bindCheckinDayTimeChange">
+                <view class="picker-item">{{dayStartTime}}</view>
+              </picker>
+            </view>
+          </view>
+
+          <view class="title">
+            <text>结束时间</text>
+            <view class="time_set">
+              <picker name="end" mode="time" start="{{checkMinDayTime}}" value="{{dayEndTime}}" bindchange="bindCheckoutDayTimeChange">
+                <view class="picker-item">{{dayEndTime}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="select">    
+          <text style="font-size: 32rpx;color: #6f6f6f;">地点设置</text>
+        </view>
+        <view class="select">
+      <text>需要定位</text>
+      <switch name="site" checked="{{isChecked}}" bindchange="changeSwitch"/>
+    </view>
+
+    <view class="maybe" wx:if="{{isChecked}}">
+      <view class="title">
+        <text bindtap="moveToLocation">定位</text>
+        <view style="display: flex;">
+          <input name="siteName"	disabled="true" placeholder="请选择地址..." value="{{mapName}}"></input>
+          <text bindtap="moveToLocation" class="iconfont.icon-31dingwei" style="font-size: 60rpx;margin-right: 20rpx;margin-left: 20rpx;"></text>
+        </view>
+      </view>
+      
+      <view class="title">
+        <text style="color: black;">范围(M)</text>
+        <input name="scope" type="number" maxlength="3" placeholder-style='font-size:35rpx;' placeholder="最多三位数"></input>
+      </view>
+    </view>
+
+    <view class="base">
+      <text >打卡信息提示</text>
+    </view>
+    <view class="title">
+        <text style="color: black;">打卡信息</text>
+        <input name="information" type="text" maxlength="20" placeholder-style='font-size:35rpx;' placeholder="例如：电话+姓名"/>
+    </view>
+    
+  </view>
+  <button bindtap="login" type="primary" form-type="submit" data-id="{{dataId}}">生成打卡活动</button>
+</form>
+

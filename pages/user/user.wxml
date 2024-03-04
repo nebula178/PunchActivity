@@ -1,0 +1,16 @@
+<!--用户界面-->
+<view class="header">
+      <view class="picture">
+        <image wx-if="{{userInfo == null}}" src="/image/user.png"></image>
+        <image wx:else src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="name">
+        <text wx-if="{{userInfo == null}}">昵称</text>
+        <text wx:else>{{userInfo.nickName}}</text>
+      </view>
+</view>
+
+<view class="quits">
+  <button wx-if="{{userInfo == null}}" bindtap="login">立即登录</button>
+  <button wx:else type="warn" bindtap="loginOut">退出登录</button>
+</view>

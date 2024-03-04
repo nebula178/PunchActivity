@@ -1,0 +1,41 @@
+<!--打卡首页-->
+<!-- <头部 -->
+<view class="create">  
+  <!-- 创建打卡标题 -->
+  <view class="header">
+    <text class="creat">创建打卡</text>
+  </view>
+  <!-- 创建打卡 -->
+  <view class="classify">
+    <!-- 创建单次打卡 -->
+    <view class="classifya" bindtap="goToonce">
+      <text class="iconfont icon-chuangjian" style="font-size: 100rpx;margin-bottom: 10rpx;color: rgb(194, 102, 60);"></text>
+      <text class="ca">单次打卡</text>
+    </view>
+    <!-- 创建周期打卡 -->
+    <view class="classifyb" bindtap="goTocycles">
+      <text class="iconfont icon-piliangchuangjian" style="font-size: 100rpx;margin-bottom: 10rpx;color: rgb(194, 102, 60);"></text>
+      <text class="cb">周期打卡</text>
+    </view>
+  </view>
+</view>
+
+<view class="my">
+  <view class="mine">
+    <text class="minee">我的打卡</text>
+  </view>
+  <view class="join" bindtap="goTojoint">
+    <view class="joina">
+      <text class="iconfont icon-A" style="font-size: 50rpx;color: rgb(124, 93, 47);margin: 10rpx;"></text>
+      <text class="joinn">我加入的打卡</text>
+    </view>   
+    <text class="jointb">></text>
+  </view>
+  <view class="found" bindtap="goTocontrol">
+    <view class="founda">
+      <text class="iconfont icon-A1" style="font-size: 50rpx;color: rgb(27, 52, 133);margin: 10rpx;"></text>
+      <text class="foundd">我创建的打卡</text>
+    </view>
+    <text class="foundb">></text>
+  </view>
+</view>

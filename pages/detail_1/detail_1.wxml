@@ -1,0 +1,63 @@
+<!--pages/detail/detail.wxml-->
+<view class="card_detail">
+  <view class="header">
+    <text class="title">{{dataObj[0].name}}</text>
+    <view class="qr" bindtap="viewImg">
+      <image style="height: 80rpx;width: 50rpx;" src="{{dataObj[0].QRcode}}"/>
+      <text>查看二维码</text>
+    </view>
+    
+  </view>
+  <view class="a"></view>
+  <view class="main">
+    <view class="div">
+      <text class="right">开始时间：</text>
+      <view class="st">
+        <text>{{dataObj[0].startDate}} </text> <text> {{dataObj[0].startTime}}</text>
+      </view>
+    </view>
+    <view class="div">
+      <text class="right">结束时间：</text>
+      <view class="st">
+        <text>{{dataObj[0].endDate}} </text> <text> {{dataObj[0].endTime}}</text>
+      </view>
+    </view>
+    <view class="div">
+      <text class="right">打卡频率：</text>
+      <view class="st">
+        <text wx:if="{{dataObj[0].week0==true}}">星期日</text>
+        <text wx:if="{{dataObj[0].week1==true}}"> 星期一</text> 
+        <text wx:if="{{dataObj[0].week2==true}}"> 星期二</text>
+        <text wx:if="{{dataObj[0].week3==true}}"> 星期三</text>
+        <text wx:if="{{dataObj[0].week4==true}}"> 星期四 </text> 
+        <text wx:if="{{dataObj[0].week5==true}}"> 星期五</text> 
+        <text wx:if="{{dataObj[0].week6==true}}"> 星期六</text>
+      </view>
+    </view>
+    <view class="div">
+      <text class="right">单个打卡日开始与结束时间：</text>
+      <view class="st">
+        <text>{{dataObj[0].start}} </text> <text> {{dataObj[0].end}}</text>
+      </view>
+    </view>
+    
+    <view wx:if="{{dataObj[0].site ==  true}}" class="divs">
+      <text class="right">打卡地点：</text>
+      <view class="st">
+        <text>{{dataObj[0].siteName}}</text>
+      </view>
+    </view>
+    <view class="div">
+      <text class="right">参与者打卡必填信息：</text>
+      <view class="st">
+        <text>{{dataObj[0].information}}</text>
+      </view>
+    </view>
+    
+    <button wx-if="{{u == 2}}" bindtap="login" type="primary" size="mini">立即登录</button>
+    <button wx-if="{{u == 0}}" bindtap="joinIn" type="primary" size="mini">加入打卡活动</button>
+    <button wx-if="{{u == 1}}" bindtap="goToClock" data-id="{{dataObj[0]._id}}" type="primary" size="mini">查看详情</button>
+
+  </view>
+  
+</view>

@@ -1,0 +1,3 @@
+<button bindtap="aa">获取进行星期几</button>
+<view>{{week}}</view>
+  

@@ -1,0 +1,16 @@
+@import "/font/iconfont.wxss";
+
+.base{
+  padding:20rpx 10rpx;
+  background-color: rgb(238, 235, 235);
+}
+
+.base text{
+  font-size: 32rpx;
+  color: #6f6f6f;
+}
+
+.list{
+  color: #6f6f6f;
+  font-size: 45rpx;
+}

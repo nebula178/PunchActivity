@@ -1,0 +1,57 @@
+<view class="daka"> <!--打卡和排行-->
+  <button bindtap="clock" size="mini" type="default" plain="true"> 打卡 </button>
+  <button bindtap="goToOrder" size="mini" type="default" plain="true"> 排行榜 </button>
+</view>
+
+<view wx:if="{{text}}" class="punch_wrap"> <!--打卡详情-->
+  <view class="input_wrap"> <!--文本框-->
+    <textarea bindinput="getValue" class="input_text" placeholder="请输入：{{information}}；最多80字" maxlength="80"></textarea>
+  </view> 
+
+  <view class="upimg-wrap"> <!--载入图片-->
+    <view wx:for="{{tempFilePaths}}" wx:key="index" class="img-wrap2">
+      <image bindtap="viewImg0" src="{{item}}" mode="aspectFit" class="image-1"></image>
+      <text bindtap="deleteImg" data-index="{{index}}" class="iconfont icon-shanchu1" style="display: block; margin:0 0 220rpx -20rpx;  color: brown;"></text>
+    </view>
+  </view>
+
+  <view class="punch"> <!--传图与打卡-->
+    <view class="add_pic" bindtap="upImage">
+      <text style="font-size: 35rpx;margin-right: 5rpx;">添加图片</text>
+      <text class="iconfont icon-tianjiatupian" style="line-height: 60rpx;font-size: 60rpx;color: rgb(24, 65, 44);"></text>
+    </view>
+    <view wx:if="{{site}}" bindtap="site_scope" class="punch_text"> 定位 </view>
+    <view wx:else bindtap="submitData" class="punch_text"> 打卡 </view>
+  </view>
+
+</view>
+  
+<block wx:for="{{actionsList}}" wx:key="index">
+  <view class="message">
+  
+    <view class="left">
+      <image class="face-img" src="{{item.faceImg}}"></image>
+    </view>
+
+    <view class="right">
+      <view class="name_del">
+        <view class="nickname"> {{item.nickName}} </view>
+        <view wx:if="{{openId == item._openid}}" bindtap="deleteAction" data-id="{{item._id}}" class="del"> 删除 </view>
+      </view>
+      
+      <view>
+        {{item.text}}
+      </view>
+
+      <view wx:if="{{item.image!=''}}" class="img-wrap">
+        <image  bindtap="viewImg" src="{{item.image}}" class="image-1"></image>
+      </view>
+
+      <view class="time_site">
+        <view class="time"> {{item.dateTime}} </view>
+        <view wx:if="{{item.siteName!=''}}" class="site"> {{item.siteName}} </view>
+      </view>
+      
+    </view>
+  </view>
+</block>

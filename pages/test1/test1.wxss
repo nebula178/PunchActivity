@@ -1,0 +1,44 @@
+.btn{
+  font-size: 24rpx;
+  padding: 12rpx 19rpx;
+  border: 1px solid #dcdcdc;
+  background: #F8F8F8;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  margin-bottom: 22rpx;
+  text-align: center;
+  display: inline-block;
+  color: #666666;
+}
+.btn-selected{
+  border: 1px solid #FF7C80;
+  color: #F73C41;
+  background: #FFFFFF;
+}
+
+.select{
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  border-bottom: 1rpx solid #eee;
+  color: black;
+}
+.week{
+  width: 50rpx;
+  height: 105rpx;
+  font-size: 23rpx;
+  padding: 5rpx 5rpx;
+  border: 1px solid #dcdcdc;
+  background: #F8F8F8;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #666666;
+  box-sizing: border-box;
+}
+.week-selected{
+  border: 1px solid #FF7C80;
+  color: #F73C41;
+  background: #FFFFFF;
+}

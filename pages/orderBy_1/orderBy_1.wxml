@@ -1,0 +1,21 @@
+<view class="main">
+  <view class="head">
+    排行榜
+  </view>
+  <view class="member" wx:for="{{member_length}}" wx:key="index">
+    <view class="left">
+      <image class="picture" src="{{member[index].faceImg}}"></image>
+      <view class="information">
+        <text class="name"> {{member[index].nickName}} </text>
+        <text class="dateTime">累计打卡 {{member[index].number}} 天</text>
+        <text class="dateTime"> {{member[index].date}}</text>
+      </view>
+      
+    </view>
+    <view class="right">
+      {{index+1}}
+    </view>
+  </view>
+
+</view>
+

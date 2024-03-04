@@ -1,0 +1,3 @@
+<view class="container log-list">
+<button bindtap="site">点击</button>
+</view>
